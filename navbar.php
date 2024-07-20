@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse justify-content-end " id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active " aria-current="page" href="#">Home</a>
+                    <a class="nav-link active " aria-current="page" href="index.php">Home</a>
                 </li>
                 <li class="nav-item dropdown ">
                     <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -42,11 +42,6 @@
                         <li><a class="dropdown-item" href="#">Support</a></li>
                         <li><a class="dropdown-item" href="#">Feed Back</a></li>
                     </ul>
-                </li>
-
-
-                <li class="nav-item">
-                    <a class="nav-link active"  aria-current="page" href="register.php">Register</a>
                 </li>
 
             </ul>

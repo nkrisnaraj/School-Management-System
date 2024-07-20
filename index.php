@@ -20,27 +20,27 @@ include 'includes/navbar.php';
         <h2>Features</h2>
         <div class="feature-list">
             <div class="feature-item">
-                <img src="path/to/icon1.png" alt="User Management">
+                <img src="./assests/user-manage.jpg" alt="User Management" class="w-100 h-50 rounded">
                 <h3>User Management</h3>
                 <p>Manage students, teachers, and parents efficiently.</p>
             </div>
             <div class="feature-item">
-                <img src="path/to/icon2.png" alt="Class Management">
+                <img src="./assests/teacher-hands-raised-min.jpg" alt="Class Management" class="w-100 h-50 rounded">
                 <h3>Class Management</h3>
                 <p>Organize classes and schedules with ease.</p>
             </div>
             <div class="feature-item">
-                <img src="path/to/icon3.png" alt="Timetable Management">
+                <img src="./assests/timetable.png" alt="Timetable Management" class="w-100 h-50 rounded">
                 <h3>Timetable Management</h3>
                 <p>Create and manage timetables seamlessly.</p>
             </div>
             <div class="feature-item">
-                <img src="path/to/icon4.png" alt="Exam Management">
+                <img src="./assests/exam.jpg" alt="Exam Management" class="w-100 h-50 rounded">
                 <h3>Exam Management</h3>
                 <p>Conduct exams and manage results effectively.</p>
             </div>
             <div class="feature-item">
-                <img src="path/to/icon5.png" alt="Attendance Tracking">
+                <img src="./assests/attendance.jpg" alt="Attendance Tracking" class="w-100 h-50 rounded">
                 <h3>Attendance Tracking</h3>
                 <p>Monitor attendance with ease and accuracy.</p>
             </div>

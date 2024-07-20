@@ -2,11 +2,20 @@
 include 'includes/init.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $username = $_POST['username'];
+    $useremail = $_POST['useremail'];
     $password = $_POST['password'];
 
+    if (empty($useremail) || empty($password)) {
+        echo "Email and password are required.";
+        exit;
+    }
+    if (!filter_var($useremail, FILTER_VALIDATE_EMAIL)) {
+        echo "Invalid email format.";
+        exit;
+    }
+
     $user = new User();
-    $foundUser = $user->find($username);
+    $foundUser = $user->find($useremail);
 
     if ($foundUser && $user->verifyPassword($password, $foundUser['password'])) {
         $_SESSION['user_id'] = $foundUser['id'];

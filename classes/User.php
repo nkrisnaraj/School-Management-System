@@ -8,14 +8,17 @@ class User {
         $this->pdo = $db->getConnection();
     }
 
-    public function find($username) {
-        $stmt = $this->pdo->prepare("SELECT * FROM users WHERE username = ?");
-        $stmt->execute([$username]);
+    public function find($useremail) {
+        $stmt = $this->pdo->prepare("SELECT * FROM users WHERE useremail = ?");
+        $stmt->execute([$useremail]);
         return $stmt->fetch();
     }
 
     public function verifyPassword($password, $hash) {
-        return password_verify($password, $hash);
+        if($password===$hash){
+            return true;
+        }
+        return false;
     }
 }
 ?>

@@ -1,27 +1,26 @@
 <?php
-include './includes/init.php';
+include 'includes/init.php';
 
-if (!isset($_SESSION['user_id'])) {
-    header('Location: index.php');
-    exit;
-}
+if ($_SESSION['user_id']) {
 
-$user = null;
-switch ($_SESSION['role']) {
-    case 'admin':
-        $user = new Admin();
-        break;
-    case 'teacher':
-        $user = new Teacher();
-        break;
-    case 'student':
-        $user = new Student();
-        break;
-}
+        // Redirect based on user role
+        switch ($_SESSION['role']) {
+            case 'admin':
+                header('Location: admin/dashboard.php');
+                break;
+            case 'teacher':
+                header('Location: teacher/dashboard.php');
+                break;
+            case 'student':
+                header('Location: student/dashboard.php');
+                break;
+            default:
+                header('Location: index.php'); // Fallback for unknown roles
+                break;
+        }
+        exit;
+    } else {
+        echo "Invalid username or password";
+    }
 
-if ($user) {
-    echo $user->getDashboard();
-} else {
-    echo "Invalid role";
-}
 ?>

@@ -1,0 +1,124 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+   
+
+}
+.background {
+    background-image: url('./background.jpg');
+    background-size:cover; 
+   
+    height:100vh;/* Set the background size to full width and 50% of viewport height */
+    background-repeat: no-repeat; /* No repeating */
+    background-position: center center; /* Center the image */
+    background-attachment: fixed;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.form {
+    max-width: 40%;
+    margin: 50px auto;
+    padding: 20px 80px;
+    padding-bottom: 50px;
+    background: transparent;
+    /* background-color: #ffffff; */
+    background: transparent;
+    backdrop-filter: blur(15px);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    background: transparent;
+    border: 1px solid #ccc;
+    background-color: rgba(248, 248, 248, 0.3);
+    border-radius: 20px;
+}
+
+form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #5cb85c;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+}
+
+h1 {
+    text-align: center;
+}
+.option{
+    background:transparent;
+    outline: none;
+    border: 2px solid rgba(247, 244, 244, 0.1);
+    border-radius: 40px;
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    background-color: rgba(248, 248, 248, 0.3);
+}
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-top: 1px solid #e7e7e7;
+}
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px;
+}
+.footer-section h4 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+.footer-section ul li a {
+    text-decoration: none;
+    color: #007bff;
+}
+.footer-section ul li a:hover {
+    text-decoration: underline;
+}
+.footer-section .social-media a {
+    margin-right: 10px;
+}
+.footer-section .social-media img {
+    width: 24px;
+    height: 24px;
+}
+.footer-section form {
+    display: flex;
+}
+.footer-section form input {
+    flex: 1;
+    padding: 5px;
+    margin-right: 5px;
+}
+.footer-section form button {
+    padding: 5px 10px;
+}
+.footer-section.about p {
+    font-size: 14px;
+    color: #6c757d;
+}

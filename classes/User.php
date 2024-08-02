@@ -23,15 +23,15 @@ class User
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $user = $stmt->fetch();
             $hash = $user['password'];
-            if ($table != "admins") {
-                if (password_verify($password, $hash)) {
+            if ($table === "admins") {
+                if ($hash == $password) {
                     return $user;
                 }
-            } else if ($hash == $password) {
+            } else if (password_verify($password, $hash)) {
                 return $user;
             }
+            return false;
         }
-        return false;
     }
 
     public function authenticate($email, $password)

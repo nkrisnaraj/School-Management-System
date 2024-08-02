@@ -1,6 +1,11 @@
 <?php
 session_start();
 include '../includes/init.php';
+require '../vendor/autoload.php'; // Ensure the correct path to autoload.php
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 $admin = new Admin();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = $_POST['name'];
@@ -19,35 +24,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         return $randomPassword;
     }
-    $password = generateRandomPassword(8);
+    $password = generateRandomPassword(6);
     $duplicatePassword = $password;
-    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+    $password = password_hash($password, PASSWORD_BCRYPT);
 
     if ($admin->addUser($name, $email, $password, $role, $address, $mobile)) {
         // $mailMessage = "Dear $name,\n\n your account login password is : $duplicatePassword \n\n\n you can now login and reset your password.";
    
-// Recipient email address
-$to = $email;
+        $mail = new PHPMailer(true);
+        try {
+            //Server settings
+            $mail->isSMTP();                                            // Send using SMTP
+            $mail->Host       = 'smtp.gmail.com';                       // Set the SMTP server to send through
+            $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+            $mail->Username   = 'nknkrisna@gmail.com';                 // SMTP username
+            $mail->Password   = 'wqzt qnlr rfha oolb';                  // SMTP password
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+            $mail->Port       = 587;                                    // TCP port to connect to
 
-// Subject of the email
-$subject = 'Test password Email';
+            //Recipients
+            $mail->setFrom('nknkrisna@gmail.com', 'Admin');
+            $mail->addAddress($email, $name);
 
-// Message body
-$mailMessage = "This is a test email sent from PHP= $duplicatePassword";
+            // Content
+            $mail->isHTML(true);
+            $mail->Subject = 'Your Account Login Details';
+            $mail->Body    = "Dear $name,<br><br>Your account login password is: $duplicatePassword<br><br>You can now login and reset your password.";
+            $mail->AltBody = "Dear $name,\n\nYour account login password is: $duplicatePassword\n\nYou can now login and reset your password.";
 
-// Additional headers
-$headers = 'From: sender@example.com' . "\r\n" .
-           'Reply-To: sender@example.com' . "\r\n" .
-           'X-Mailer: PHP/' . phpversion();
-
-// Send the email
-
-
-
-if (mail($to, $subject, $mailMessage, $headers)) {
-            $message = "New user added successfully. and password sent to your email.";
-        } else {
-            $message = "New user added successfully. and password sent failed your email.";
+            $mail->send();
+            $message = "New user added successfully and password sent to your email.";
+        } catch (Exception $e) {
+            $message = "New user added successfully but email could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }
     } else {
         $message = "Failed to add new user.";

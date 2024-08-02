@@ -1,2 +1,3 @@
 *.php linguist-language=PHP
 *.css linguist-language=CSS
+*.json linguist-language=JSON

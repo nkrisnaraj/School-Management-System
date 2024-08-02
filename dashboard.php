@@ -1,10 +1,10 @@
 <?php
 include 'includes/init.php';
 
-if ($_SESSION['user_id']) {
+if ($_SESSION['userType']) {
 
         // Redirect based on user role
-        switch ($_SESSION['role']) {
+        switch ($_SESSION['userType']) {
             case 'admin':
                 header('Location: admin/dashboard.php');
                 break;

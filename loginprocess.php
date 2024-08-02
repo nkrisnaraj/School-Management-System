@@ -15,16 +15,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     $user = new User();
-    $foundUser = $user->find($useremail);
-
-    if ($foundUser && $user->verifyPassword($password, $foundUser['password'])) {
-        $_SESSION['user_id'] = $foundUser['id'];
-        $_SESSION['role'] = $foundUser['role'];
-
+    $foundUser = $user->authenticate($useremail, $password);
+    if ($foundUser) {
+ 
+        $_SESSION['user']= $foundUser['user'];
+        $_SESSION['userType']= $foundUser['userType'];
+    
         header('Location: dashboard.php');
         exit;
+    }
     } else {
         echo "Invalid username or password";
     }
-}
+
 ?>

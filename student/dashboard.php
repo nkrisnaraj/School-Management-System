@@ -2,7 +2,7 @@
 include '../includes/init.php'; // Ensure session and initializations are included
 
 // Check if the user is logged in and has student role
-if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'student') {
+if (!isset($_SESSION['user']) || $_SESSION['userType'] !== 'student') {
     header('Location: ../index.php'); // Redirect if not a student
     exit;
 }

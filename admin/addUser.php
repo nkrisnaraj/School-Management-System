@@ -43,14 +43,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $mail->Port       = 587;                                    // TCP port to connect to
 
             //Recipients
-            $mail->setFrom('nknkrisna@gmail.com', 'Admin');
+            $mail->setFrom('nknkrisna@gmail.com', 'Admin of School');
             $mail->addAddress($email, $name);
 
             // Content
             $mail->isHTML(true);
             $mail->Subject = 'Your Account Login Details';
-            $mail->Body    = "Dear $name,<br><br>Your account login password is: $duplicatePassword<br><br>You can now login and reset your password.";
-            $mail->AltBody = "Dear $name,\n\nYour account login password is: $duplicatePassword\n\nYou can now login and reset your password.";
+            $mail->Body    = "Dear $name,<br><br>Your account login password is: $duplicatePassword.<br><br>You can now log in to your account using your email ($email) and password.";
+            $mail->AltBody = "Dear $name,\n\nYour account login password is: $duplicatePassword\n\nYou can now log in to your account using your email ($email) and password.";
 
             $mail->send();
             $message = "New user added successfully and password sent to your email.";

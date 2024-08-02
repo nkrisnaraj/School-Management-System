@@ -17,19 +17,26 @@ $students = $admin->getUsers("students");
 // Handle form submission
 
 ?>
+<div id="manage-content">
+    <h2>Manage Users</h2>
+    <div>
+        <button onclick="openModal()" id="add-user">Add New User</button>
+        <button onclick="openTeacherModal()" id="teacher">Teachers</button>
 
-<h2>Manage Users</h2>
+    </div>
+</div>
 
 
 
 
 
-<button onclick="openModal()" id="add-user">Add New User</button>
 <!-- Modal Structure -->
 <div id="userModal" class="addUser_modal justify-content-center ">
     <div class="addUser_modal-content">
-        <span class="addUser_close" onclick="closeModal()">&times;</span>
-        <h3>Add New User</h3>
+    <div class="d-flex w-100 bg-white mb-4">
+        <h3 class="d-flex justify-content-center align-items-center text-primary w-100">Add NewUser</h3>
+        <div class="bg-danger d-flex align-items-center px-2"><span class="addUser_close" onclick="closeModal()">&times;</span></div>
+        </div>
         <form method="POST" action="addUser.php">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required><br>
@@ -79,13 +86,14 @@ $students = $admin->getUsers("students");
     
     <button type="submit">Add User</button>
 </form> -->
-<button onclick="openTeacherModal()" id="teacher">Teachers</button>
 
 <div id="teacherModal" class="addUser_modal justify-content-center ">
     <div class="addUser_modal-content">
-        <span class="addUser_close" onclick="closeTeacherModal()">&times;</span>
-        <h3>Existing Users</h3>
-        <table class="w-100 text-white">
+        <div class="d-flex w-100 bg-white mb-4">
+        <h3 class="d-flex justify-content-center align-items-center text-primary w-100">Existing Teachers</h3>
+        <div class="bg-danger d-flex align-items-center px-2"><span class="addUser_close" onclick="closeTeacherModal()">&times;</span></div>
+        </div>
+        <table class="w-100 text-white ">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -94,7 +102,7 @@ $students = $admin->getUsers("students");
                     <th>Actions</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="table-group-divider">
                 <?php foreach ($teachers as $user) : ?>
                     <tr>
                         <td><?php echo $user['id']; ?></td>

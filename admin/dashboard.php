@@ -33,11 +33,13 @@ $admin = new Admin();
         function openModal() {
             document.getElementById('userModal').style.display = 'block';
             document.getElementById('add-user').style.display = 'none';
+            document.getElementById('manage-content').style.display = 'none';
         }
 
         function closeModal() {
             document.getElementById('userModal').style.display = 'none';//#endregion
             document.getElementById('add-user').style.display = 'block';
+            document.getElementById('manage-content').style.display = 'block';
 
         }
 
@@ -49,11 +51,14 @@ $admin = new Admin();
         function openTeacherModal() {
             document.getElementById('teacherModal').style.display = 'block';
             document.getElementById('teacher').style.display = 'none';
+            document.getElementById('manage-content').style.display = 'none';
+
         }
 
         function closeTeacherModal() {
             document.getElementById('teacherModal').style.display = 'none';
             document.getElementById('teacher').style.display = 'block';
+            document.getElementById('manage-content').style.display = 'block';
 
         }
 
@@ -85,7 +90,7 @@ $admin = new Admin();
         .addUser_modal-content {
             background-color: rgba(0,0,0,0.6);
             border: 5px solid rgba(0,0,0,0.4); 
-            border-radius:5%;
+            border-radius:15px;
             box-shadow: 20px;
             padding: 20px;
             color: white;
@@ -93,10 +98,13 @@ $admin = new Admin();
         }
 
         .addUser_close {
-            color: #aaa;
+            color: #fff;
             float: right;
-            font-size: 28px;
+            font-size: 32px;
             font-weight: bold;
+            /* background: #f00; */
+            /* height: 100%; */
+
         }
 
         .addUser_close:hover,
